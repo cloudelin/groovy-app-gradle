@@ -1,7 +1,9 @@
 package org.cloude.groovy.springboot.cmd.app
 
+import org.cloude.groovy.springboot.cmd.app.service.DemoService;
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -10,6 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 class SpringCmdApp implements CommandLineRunner {
 	
 	Logger log = LoggerFactory.getLogger(SpringCmdApp.class)
+	
+	@Autowired
+	DemoService demoService
 
 	static main(args) {
 		SpringApplication.run(SpringCmdApp.class, args);
@@ -17,7 +22,7 @@ class SpringCmdApp implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) {
-		log.info 'hello world'
+		log.info demoService.getHelloMessage()
 	}
 
 }
