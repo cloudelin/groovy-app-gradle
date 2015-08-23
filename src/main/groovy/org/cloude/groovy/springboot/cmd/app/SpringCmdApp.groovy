@@ -14,6 +14,9 @@ class SpringCmdApp implements CommandLineRunner {
 	Logger log = LoggerFactory.getLogger(SpringCmdApp.class)
 	
 	@Autowired
+	ApplicationProperties applicationProperties
+	
+	@Autowired
 	DemoService demoService
 
 	static main(args) {
@@ -22,6 +25,7 @@ class SpringCmdApp implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) {
+		log.info applicationProperties.applicationName
 		log.info demoService.getHelloMessage()
 	}
 
