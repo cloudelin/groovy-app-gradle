@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
 class SpringCmdApp implements CommandLineRunner {
@@ -22,6 +23,9 @@ class SpringCmdApp implements CommandLineRunner {
 	
 	@Autowired
 	JavaDemoService javaService
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate
 
 	static main(args) {
 		SpringApplication.run(SpringCmdApp.class, args);
@@ -32,6 +36,7 @@ class SpringCmdApp implements CommandLineRunner {
 		log.info applicationProperties.applicationName
 		log.info demoService.getHelloMessage()
 		log.info javaService.helloWorld()
+		log.info jdbcTemplate.toString()
 	}
 
 }
