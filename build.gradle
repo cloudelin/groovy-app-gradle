@@ -10,6 +10,10 @@
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = "org.cloude.groovy.springboot.cmd.app.SpringCmdApp"
+applicationDefaultJvmArgs = ["-Xmx512m", "-Xms512m"]
 
 // In this section you declare where to find the dependencies of your project
 repositories {

@@ -1,6 +1,7 @@
 package org.cloude.groovy.springboot.cmd.app
 
-import org.cloude.groovy.springboot.cmd.app.service.DemoService;
+import org.cloude.groovy.springboot.cmd.app.service.DemoService
+import org.cloude.groovy.springboot.cmd.app.service.JavaDemoService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,6 +19,9 @@ class SpringCmdApp implements CommandLineRunner {
 	
 	@Autowired
 	DemoService demoService
+	
+	@Autowired
+	JavaDemoService javaService
 
 	static main(args) {
 		SpringApplication.run(SpringCmdApp.class, args);
@@ -27,6 +31,7 @@ class SpringCmdApp implements CommandLineRunner {
 	public void run(String... args) {
 		log.info applicationProperties.applicationName
 		log.info demoService.getHelloMessage()
+		log.info javaService.helloWorld()
 	}
 
 }
